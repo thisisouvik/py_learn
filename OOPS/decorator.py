@@ -8,6 +8,6 @@ def greet(fx):
 
 @greet
 def hello():
-    print("HEllo World")
+    print("Hello World")
 
 hello() 
