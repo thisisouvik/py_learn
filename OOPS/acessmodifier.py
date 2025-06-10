@@ -9,7 +9,9 @@ class Project(Employee):
     pass
 
 e = Project()
+
 # print(e.__name) cant be acessed like that
+
 print(e._Employee__name)  # can be acessed inderctly  NAME MANGLING
 print(e._funname()) # private acess through child
 
