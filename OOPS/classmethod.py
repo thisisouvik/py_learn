@@ -5,7 +5,7 @@ class Employee:
         print(f"Name of Employee {self.name} work in {self.company}")
 
     @classmethod
-    def changeCompany(cls, newCompany):
+    def changeCompany(cls, newCompany):  #if we write self still we will get the same result (without @classmethod argument)
         cls.company=newCompany
 
 e=Employee()
