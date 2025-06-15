@@ -1,4 +1,4 @@
-from pypdf import PdfWriter
+from PyPDF2 import PdfWriter
 import os
 
 folder = "."  # Set this to your PDF files directory
