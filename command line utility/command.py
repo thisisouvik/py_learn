@@ -2,7 +2,6 @@ import argparse
 import requests
 
 def download_file(url, local_filename):
-    local_filename=url.split('/')[-1]
     with requests.get(url, stream=True) as r:
         r.raise_for_status()
         with open(local_filename, 'wb+')as f:
@@ -11,4 +10,11 @@ def download_file(url, local_filename):
     return(local_filename)
 
 parser=argparse.ArgumentParser()
-parser.add_argument
+parser.add_argument("url", help="Url of the file to be downloaded")
+parser.add_argument("output", help="by the name you want to save your file")
+
+args= parser.parse_args()
+
+print(args.url)
+print(args.output)
+download_file(args.url, args.output)
