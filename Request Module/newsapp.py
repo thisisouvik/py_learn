@@ -1,6 +1,9 @@
 import requests
 import json
 
+
+apikey=input("enter your News API Key here : ")
+
 news=input("Enter topic of news : ")
 
 url=(f"https://newsapi.org/v2/everything?q={news}&from=2025-05-19&sortBy=publishedAt&apiKey={apikey}")
