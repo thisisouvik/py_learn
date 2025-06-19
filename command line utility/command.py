@@ -11,7 +11,7 @@ def download_file(url, local_filename):
 
 parser=argparse.ArgumentParser()
 parser.add_argument("url", help="Url of the file to be downloaded")
-parser.add_argument("output", help="by the name you want to save your file")
+parser.add_argument("output", help="By the name you want to save your file")
 
 args= parser.parse_args()
 
