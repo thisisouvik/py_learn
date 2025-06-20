@@ -4,5 +4,5 @@ speaker = win32com.client.Dispatch("SAPI.SpVoice")
 L=["Arun", "Faisal", "Sunny"]
 
 for i in L:
-    x=("Short out to ",i)
+    x=(f"Hey {i} drink water")
     speaker.Speak(x)

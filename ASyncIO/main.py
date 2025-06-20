@@ -8,7 +8,7 @@ async def func1():
     r = requests.get(image_url) 
     with open("python_logo.png",'wb') as f:
         f.write(r.content)
-    await asyncio.sleep(2)
+    await time.sleep(2)
     print("func1")
 
 async def func2():
@@ -17,7 +17,7 @@ async def func2():
     r = requests.get(image_url)
     with open("python_logo2.png",'wb') as f:
         f.write(r.content)
-    await asyncio.sleep(2)
+    await time.sleep(2)
     print("func2")
 
 async def func3():
@@ -25,7 +25,7 @@ async def func3():
     r = requests.get(image_url)
     with open("python_logo3.png",'wb') as f:
         f.write(r.content)
-    await asyncio.sleep(2)
+    await time.sleep(2)
     print("func3")
 
 async def main():
