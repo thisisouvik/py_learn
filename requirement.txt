@@ -1,12 +1,12 @@
-#Tech Stack used
+#All external dependencies
 
 python >= 3.13.2
 
 #Module used
 
  os Module
- PyPDF2 module  #PDF Merge project
- asyncio module #ASyncIO file
- request module #request module
- time module    #time module 
+ PyPDF2 module   #PDF Merge project
+ asyncio module  #ASyncIO file
+ request module  #request module
+ time module     #time module 
  win32com.client # text to speech
