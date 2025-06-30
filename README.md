@@ -44,6 +44,7 @@ The primary aim of this repository is to learn Python thoroughly and build a str
 
 ## 🤝 Contributing
 
+Be sure to install all the dependencies form ```requirements.txt``` to run this rep seamlessly.
 This is a personal learning project, but suggestions and corrections are always welcome! Feel free to open an issue or submit a pull request.
 
 ---
