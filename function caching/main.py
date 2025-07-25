@@ -13,6 +13,7 @@ print("done for 2")
 print(fx(4))
 print("done for 4")
 
+
 print(fx(12))
 print("Done for 12")
 print(fx(2))
