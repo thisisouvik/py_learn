@@ -46,3 +46,20 @@ def create_todo(todo : dict):
     all_todos.append(new_todo)
 
     return  new_todo
+
+@api.put('/todos/{todo_id}')
+def ubdate_todo(todo_id: int, ubdated_todo: dict):
+    for todo in all_todos:
+        if todo['todo_id'] == todo_id:
+            todo['role'] == ubdate_todo['role']
+            todo['Desc'] == ubdate_todo['Desc']
+            return todo
+        return "Error, Not Found!"
+    
+@api.delete('/todos/{todo_id}')
+def delete_todo(todo_id: int):
+    for index, todo in enumerate(all_todos):
+        if todo['todo_id'] == todo_id:
+            delete_todo = all_todos.pop(index)
+            return delete_todo
+        return "Error! Not Found"
