@@ -12,7 +12,11 @@ class Priority(IntEnum):
     HIGH = 1
 
 class TodoBase(BaseModel):
+    todo_names: str = Field(..., min_length=3, max_length=512, description= 'Name of the todo')
+    todo_description:str =Field(..., description='Description of the todo')
+    priority: Priority =Field(default=Priority.LOW, description='Priority of the todo')
     
+
 
 #GET - getting information from  server
 #POST- creating/submit in the server
