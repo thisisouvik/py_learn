@@ -1,6 +1,18 @@
+from enum import IntEnum
+from typing import List, Optional
+
 from fastapi import FastAPI
+from pydantic import BaseModel, Field
 
 api = FastAPI()
+
+class Priority(IntEnum):
+    LOW = 3
+    MEDIUM = 2
+    HIGH = 1
+
+class TodoBase(BaseModel):
+    
 
 #GET - getting information from  server
 #POST- creating/submit in the server
