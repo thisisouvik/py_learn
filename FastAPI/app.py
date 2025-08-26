@@ -16,6 +16,7 @@ class TodoBase(BaseModel):
     todo_description:str =Field(..., description='Description of the todo')
     priority: Priority =Field(default=Priority.LOW, description='Priority of the todo')
     
+    
 
 
 #GET - getting information from  server
