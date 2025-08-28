@@ -1,7 +1,7 @@
 from enum import IntEnum
 from typing import List, Optional
 
-from fastapi import FastAPI
+from fastapi import FastAPI , HTTPException
 from pydantic import BaseModel, Field
 
 api = FastAPI()
@@ -75,11 +75,13 @@ def create_todo(todo : TodoCreate):
 @api.put('/todos/{todo_id}')
 def ubdate_todo(todo_id: int, ubdated_todo: dict):
     for todo in all_todos:
-        if todo['todo_id'] == todo_id:
-            todo['role'] == ubdate_todo['role']
-            todo['Desc'] == ubdate_todo['Desc']
+        if todo.todo_id == todo_id:
+            todo.todo_names = ubdated_todo.todo_names
+            todo.todo_description = ubdated_todo.todo_description
+            todo.priority = ubdated_todo.priority
             return todo
-        return "Error, Not Found!"
+        
+        raise HTTPException(status_code=404, detail= ' Todo not found')
     
 @api.delete('/todos/{todo_id}', response_model=TodoBase)
 def delete_todo(todo_id: int):
@@ -87,4 +89,4 @@ def delete_todo(todo_id: int):
         if todo['todo_id'] == todo_id:
             delete_todo = all_todos.pop(index)
             return delete_todo
-        return "Error! Not Found"
+        raise HTTPException(status_code=404, detail= ' Todo not found')
