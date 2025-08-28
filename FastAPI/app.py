@@ -63,11 +63,10 @@ def get_all_todo(first_n: int = None):
 def create_todo(todo : TodoCreate):
     new_todo_id= max(todo['todo_id'] for todo in all_todos) + 1
 
-    new_todo = {
-        'todo_id' : new_todo_id,
-        'role' : todo['role'],
-        'Desc' : todo['Desc']
-    }
+    new_todo= Todo(todo_id= new_todo_id,
+                   todo_name= todo.todo_names,
+                   todo_description=todo.todo_description,
+                   priority=todo.priority)
 
     all_todos.append(new_todo)
 
@@ -82,7 +81,7 @@ def ubdate_todo(todo_id: int, ubdated_todo: dict):
             return todo
         return "Error, Not Found!"
     
-@api.delete('/todos/{todo_id}')
+@api.delete('/todos/{todo_id}', response_model=TodoBase)
 def delete_todo(todo_id: int):
     for index, todo in enumerate(all_todos):
         if todo['todo_id'] == todo_id:
