@@ -1,15 +1,12 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Index Page{% endblock %}
+
+{% block content %}
     <h1>Hello World</h1>
-    <ul>
-        {% for item in my_list %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+    <form method="POST" action="{{ url_for('index') }}">
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="text" name="email" placeholder="Email"><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
