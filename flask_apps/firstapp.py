@@ -1,13 +1,18 @@
-from flask import Flask , request
+from flask import Flask , request, make_response, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "<h1>HEllo world</h1>"
+    return render_template('index.html')
+    
 
-@app.route('/xyz')
+@app.route('/hello')
 def hello():
+    response = make_response()
+    response.status_code = 202
+    response.headers['content-type'] = 'application opted text'
+
     return "Hello World"
 
 @app.route('/greet/<name>')
