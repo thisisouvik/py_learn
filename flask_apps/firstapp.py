@@ -16,6 +16,15 @@ def index():
         else:
             return 'Invalid credentials'
 
+@app.route('/file_upload', methods=['GET', 'POST'])
+def file_upload():
+    if request.method == 'POST':
+        file = request.files.get('file')
+        
+        if file:
+            file.save(f'uploads/{file.filename}')
+            return 'File uploaded successfully'
+    return render_template('file_upload.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5555 ,debug = True)

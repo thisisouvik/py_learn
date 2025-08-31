@@ -9,4 +9,11 @@
         <input type="text" name="email" placeholder="Email"><br>
         <input type="submit" value="Submit">
     </form>
+
+    <h1>File upload</h1>
+    <form method="POST" action="{{ url_for('file_upload') }}" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".txt,.pdf,.docx"><br>
+        <input type="submit" value="Upload">
+    </form>
+
 {% endblock %}
