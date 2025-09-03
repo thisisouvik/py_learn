@@ -1,4 +1,4 @@
-from flask import Flask , request, make_response, render_template, jsonify, session
+from flask import Flask , request, make_response, render_template, jsonify, session, flash
 
 app = Flask(__name__, template_folder= 'templates')
 
@@ -44,9 +44,20 @@ def get_cookie():
     cookie_value = request.cookies['cookie_name']
     return render_template(template_name_or_list='index.html', message = f'Cookie value {cookie_value}')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    if request.method == 'GET':
+        return render_template('login.html')
+    elif request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if username == 'Souvik' and password == 'Posword':
+            flash('Login Sucessful!!!')
+            return render_template(template_name_or_list= 'index.html', message = f' username = {username} logged in')
+        else:
+            flash('Login!!!')
+            return render_template(template_name_or_list='index.html', message = 'Not found')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5555 ,debug = True)
