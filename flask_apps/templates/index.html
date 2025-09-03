@@ -8,9 +8,21 @@
     <img src="{{ url_for('static', filename='images/hello_world.png') }}" alt="Hello World Image">
 
     <div class="box">
-        <p>This is a box.</p>
+        <button>This is a box.</button>
     </div>
+    
     <a href="{{ url_for('set_data') }}">Set Session Data</a>
 
     <a href="{{ url_for('get_data') }}">Get Session Data</a>
+
+    {% if message %}
+        <p><strong>Message:</strong> {{ message }}</p>
+    {% endif %}
+
+    {% if name or other %}
+        <p><strong>Session name:</strong> {{ name }}</p>
+        <p><strong>Session other:</strong> {{ other }}</p>
+    {% endif %}
+
+
 {% endblock %}
