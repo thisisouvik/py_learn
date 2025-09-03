@@ -27,11 +27,22 @@ def get_data():
         message = f'Name: {name}, Other: {other}'
     return render_template('index.html', message=message, name=name, other=other)
 
-@app.route('clear_data')
+@app.route('/clear_data')
 def clear_data():
     session.clear()
 
-    return render_template('index.html', )
+    return render_template('index.html', message= 'Clear session data')
+
+@app.route('/set_cookie')
+def set_cookie():
+    response = make_response(render_template(template_name_or_list='index.html', message='cookie set'))
+    response.set_cookie(key='cookie_name', value='cookie_value')
+    return response
+
+@app.route('/get_cookie')
+def get_cookie():
+    cookie_value = request.cookies['cookie_name']
+    return render_template(template_name_or_list='index.html', message = f'Cookie value {cookie_value}')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5555 ,debug = True)
