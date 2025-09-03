@@ -44,5 +44,9 @@ def get_cookie():
     cookie_value = request.cookies['cookie_name']
     return render_template(template_name_or_list='index.html', message = f'Cookie value {cookie_value}')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port = 5555 ,debug = True)
