@@ -10,11 +10,14 @@
         <li>{{ person }}</li>
     {% endfor %}
     </ul>
+    {% if message %}
+        <p><strong>{{ message }}</strong></p>
+    {% endif %}
     <h3>New Person</h3>
-    <form action="{{ url_for('index.html') }}" method="post">
+    <form action="{{ url_for('index') }}" method="post">
         <input type="text" name="name" placeholder="Enter Name"><br>
         <input type="number" name="age" placeholder="Enter Age"><br>
         <input type="text" name="job" placeholder="Job"><br>
-        <input type="submit" value="Add Person">
+        <input type="submit" value="Add Person"> <br>
     </form>
 {% endblock %}
