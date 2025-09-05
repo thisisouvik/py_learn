@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    <h1>Index Page</h1>
+
+    <ul>
+    {% for person in people %}
+        <li>{{ person }}</li>
+    {% endfor %}
+    </ul>
+    <h3>New Person</h3>
+    <form action="{{ url_for('index.html') }}" method="post">
+        <input type="text" name="name" placeholder="Enter Name"><br>
+        <input type="number" name="age" placeholder="Enter Age"><br>
+        <input type="text" name="job" placeholder="Job"><br>
+        <input type="submit" value="Add Person">
+    </form>
+{% endblock %}

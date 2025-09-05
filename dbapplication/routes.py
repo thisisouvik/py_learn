@@ -4,7 +4,7 @@ from models import Person
 
 def register_routes(app, db):
 
-    @app.route('/')
+    @app.route('/', methods= ['GET', 'POST'])
     def index():
         people = Person.query.all()
-        return str(people)
+        return render_template(template_name_or_list= 'index.html', people =people)
