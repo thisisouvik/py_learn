@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Details{% endblock %}
+{% block content %}
+    <h1>Details Page</h1>
+    <p>Name: {{ person.name }}</p>
+    <p>Age: {{ person.age if person.age is not none else 'N/A' }}</p>
+    <p>Job: {{ person.job or 'N/A' }}</p>
+    <a href="{{ url_for('index') }}">Back to Index</a>
+{% endblock %}
