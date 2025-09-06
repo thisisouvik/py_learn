@@ -3,3 +3,6 @@ flask_apps/.venv
 dbapplication/__pycache__/app.cpython-310.pyc
 dbapplication/__pycache__/models.cpython-310.pyc
 dbapplication/__pycache__/routes.cpython-310.pyc
+dbapplication/__pycache__/app.cpython-313.pyc
+dbapplication/__pycache__/models.cpython-313.pyc
+dbapplication/__pycache__/routes.cpython-313.pyc
