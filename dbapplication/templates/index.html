@@ -4,15 +4,20 @@
 
 {% block content %}
     <h1>Index Page</h1>
-
-    <ul>
-    {% for person in people %}
-        <li>{{ person }}</li>
-    {% endfor %}
-    </ul>
     {% if message %}
         <p><strong>{{ message }}</strong></p>
     {% endif %}
+    <ul>
+        {% for person in people %}
+            <li>
+                {{ person.name }} (Age: {{ person.age if person.age is not none else 'N/A' }}) - {{ person.job or 'N/A' }}
+                <button type="button" class="delete-btn" data-pid="{{ person.pid }}">Delete</button><a href="{{ url_for('details', pid=person.pid) }}">View Details</a>
+            </li>
+        {% else %}
+            <li>No people found.</li>
+        {% endfor %}
+    </ul>
+
     <h3>New Person</h3>
     <form action="{{ url_for('index') }}" method="post">
         <input type="text" name="name" placeholder="Enter Name"><br>
@@ -20,4 +25,23 @@
         <input type="text" name="job" placeholder="Job"><br>
         <input type="submit" value="Add Person"> <br>
     </form>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.delete-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const pid = this.dataset.pid;
+                    fetch('/delete/' + pid, { method: 'DELETE' })
+                        .then(response => {
+                            if (response.ok) {
+                                window.location.reload();
+                            } else {
+                                alert('Failed to delete person.');
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+            });
+        });
+    </script>
 {% endblock %}
