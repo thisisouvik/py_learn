@@ -6,3 +6,6 @@ dbapplication/__pycache__/routes.cpython-310.pyc
 dbapplication/__pycache__/app.cpython-313.pyc
 dbapplication/__pycache__/models.cpython-313.pyc
 dbapplication/__pycache__/routes.cpython-313.pyc
+dbapplication/migrations/__pycache__/env.cpython-313.pyc
+dbapplication/migrations/versions/__pycache__/b9d560bffa18_.cpython-313.pyc
+dbapplication/migrations/versions/__pycache__/c6c6b2648d96_add_users_table.cpython-313.pyc
