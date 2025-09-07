@@ -1,0 +1,12 @@
+{%extends base.html %}
+{%bloc title%}Index{% endblock%}
+
+{% block content %}
+<h1>Login Page</h1>
+
+    <form action="{{url_for(sighup) }}" method="post">
+        <input type="text" name="username" placeholder="Username" required="required">
+        <input type="text" name="password" placeholder="Password" readonly="required">
+        <input type="submit" value="Sigh Up">
+    </form>
+{% endblock %}
