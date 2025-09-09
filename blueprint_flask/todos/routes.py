@@ -10,3 +10,5 @@ todos = Blueprint(name : 'todos', __name__ , template_folder='templates')
 def index():
     todos = Todo.query.all()
     return render_template('index.html', todos=todos)
+
+
