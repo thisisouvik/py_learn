@@ -10,11 +10,14 @@ def create_app():
 
     db.init_app(app)
 
+    from blueprint_flask.core.routes import core
     from blueprint_flask.todos.routes import todos
     from blueprint_flask.people.routes import people
 
+    app.register_blueprint(core,url_prefix='/')
     app.register_blueprint(todos, url_prefix='/todos')
     app.register_blueprint(people, url_prefix='/people')
+    
 
     migrate = Migrate(app, db)
 
